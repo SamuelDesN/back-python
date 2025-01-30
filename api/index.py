@@ -4,6 +4,8 @@ from pymongo import MongoClient
 from bson import ObjectId
 
 app = Flask(__name__)
+
+handler = app
 CORS(app)
 
 try:
