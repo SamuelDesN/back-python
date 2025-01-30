@@ -38,7 +38,7 @@ CORS(app)
 logging.basicConfig(level=logging.INFO)
 
 # MongoDB connection URI (Ensure your password is URL encoded if it contains special characters)
-client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
 db = client['express']
 users_collection = db['usuarios']
 
