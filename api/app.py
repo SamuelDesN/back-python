@@ -58,3 +58,5 @@ def home():
     return "API en Vercel funcionando correctamente"
 
 handler = app
+if __name__ == "__main__":
+    app.run(debug=True)
