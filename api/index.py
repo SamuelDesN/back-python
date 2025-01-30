@@ -41,3 +41,4 @@ def add_user():
     return jsonify({"id": str(result.inserted_id)}), 201
 
 app.run()
+handler = app
