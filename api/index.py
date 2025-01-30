@@ -9,6 +9,9 @@ CORS(app)
 client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
 db = client['express']
 users_collection = db['usuarios']
+@app.route('/')
+def home():
+    return "API en Vercel funcionando correctamente"
 
 def user_to_json(user):
     return {
