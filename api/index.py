@@ -7,7 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 
-client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
+client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/", connectTimeoutMS=30000, socketTimeoutMS=30000)
+
 db = client['express']
 users_collection = db['usuarios']
 
@@ -19,9 +20,14 @@ def user_to_json(user):
         "telefono": user["telefono"]
     }
 
+import time
+
 @app.route('/api/users', methods=['GET'])
 def get_users():
+    start_time = time.time()
     users = list(users_collection.find())
+    end_time = time.time()
+    print(f"Query time: {end_time - start_time} seconds")
     return jsonify([user_to_json(user) for user in users])
 
 
