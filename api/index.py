@@ -38,4 +38,3 @@ def get_users():
 def home():
     return "API en Vercel funcionando correctamente"
 
-handler = app
