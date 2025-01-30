@@ -60,3 +60,6 @@ def add_user():
     users.append(user)
     return jsonify(user), 201
 app.run()
+
+# Expose the handler for Vercel
+handler = app
