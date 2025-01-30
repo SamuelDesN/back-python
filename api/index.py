@@ -53,5 +53,3 @@ def home():
 
 # Exportar la app como "handler"
 handler = app
-
-app.run()
