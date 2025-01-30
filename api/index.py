@@ -37,7 +37,6 @@ client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
 db = client['express']
 users_collection = db['usuarios']
 
-# Convert ObjectId to string for JSON serialization
 def user_to_json(user):
     return {
         "id": str(user["_id"]),  # Convert ObjectId to string
@@ -58,5 +57,5 @@ def get_users():
 def home():
     return "API en Vercel funcionando correctamente"
 
-# Export the app as "handler"
+# Export the app as "handler" for Vercel
 handler = app
