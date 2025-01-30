@@ -20,7 +20,7 @@ def home():
 
 def user_to_json(user):
     return {
-        "id": str(user["_id"]),
+        "id": str(user["id"]),
         "nombre": user["nombre"],
         "apellido": user["apellido"],
         "telefono": user["telefono"]
