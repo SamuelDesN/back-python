@@ -6,9 +6,15 @@ from bson import ObjectId
 app = Flask(__name__)
 CORS(app)
 
-client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
-db = client['express']
-users_collection = db['usuarios']
+try:
+    client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
+    db = client['express']
+    users_collection = db['usuarios']
+    # Optional: Check if the connection is successful
+    client.admin.command('ping')
+except Exception as e:
+    print(f"Error connecting to MongoDB: {e}")
+    raise e  # Re-raise the exception to stop execution
 
 def user_to_json(user):
     return {
