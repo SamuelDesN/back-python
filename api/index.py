@@ -20,9 +20,15 @@ def user_to_json(user):
     }
 
 @app.route('/api/users', methods=['GET'])
+#def get_users():
+#    users = list(users_collection.find())
+#    return jsonify([user_to_json(user) for user in users])
 def get_users():
-    users = list(users_collection.find())
+    page = request.args.get('page', default=1, type=int)
+    per_page = request.args.get('per_page', default=10, type=int)
+    users = list(users_collection.find().skip((page - 1) * per_page).limit(per_page))
     return jsonify([user_to_json(user) for user in users])
+
 
 @app.route('/api/users/<string:user_id>', methods=['GET'])
 def get_user_by_id(user_id):
