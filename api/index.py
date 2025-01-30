@@ -1,15 +1,3 @@
-from flask import Flask, jsonify, request
-from flask_cors import CORS
-from pymongo import MongoClient
-from bson import ObjectId
-
-app = Flask(__name__)
-CORS(app)
-
-client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
-db = client['express']
-users_collection = db['usuarios']
-
 #def user_to_json(user):
 #    return {
 #        "id": user.get("id", str(user["id"])),
