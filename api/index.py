@@ -42,5 +42,4 @@ def add_user():
     result = users_collection.insert_one(user)
     return jsonify({"id": str(result.inserted_id)}), 201
 
-app.run()
 handle=app
