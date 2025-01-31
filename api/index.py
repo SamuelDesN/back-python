@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/", connectTimeoutMS=30000, socketTimeoutMS=30000)
+client = MongoClient("mongodb+srv://Admin:Abc123.@cluster0.4ruo4.mongodb.net/")
 
 db = client['express']
 users_collection = db['usuarios']
@@ -43,4 +43,3 @@ def add_user():
     return jsonify({"id": str(result.inserted_id)}), 201
 
 app.run()
-handle=app
