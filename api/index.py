@@ -19,7 +19,9 @@ def user_to_json(user):
         "apellido": user["apellido"],
         "telefono": user["telefono"]
     }
-
+@app.route('/', methods=['GET'])
+def home():
+    return "Encendido"
 @app.route('/api/users', methods=['GET'])
 def get_users():
     users = list(users_collection.find())
